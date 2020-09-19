@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.longyan.dao.OptionDao">
+
+    <!--通过名称查询-->
+    <select id="findValueByOptionName" parameterType="String"
+            resultType="String">
+        select option_value from `option` where option_name='${value}';
+    </select>
+
+    <select id="findManagerInfo" resultType="user">
+        select `nickname`,`image_url` from `user`;
+    </select>
+
+
+
+</mapper>
