@@ -1,6 +1,7 @@
 package store.longyan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,9 +25,8 @@ public class TagController {
         return result;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.GET, produces =
-            "application/json;charset=utf-8")
-    public HashMap<String, Object> save(Tag tag){
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    public HashMap<String, Object> save(@RequestBody Tag tag){
         tagService.saveTag(tag);
 
         HashMap<String,Object> result = new HashMap<>();
@@ -34,9 +34,8 @@ public class TagController {
         return result;
     }
 
-    @RequestMapping(value = "/update", method = RequestMethod.GET, produces =
-            "application/json;charset=utf-8")
-    public HashMap<String, Object> update(Tag tag){
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    public HashMap<String, Object> update(@RequestBody Tag tag){
         tagService.updateTag(tag);
 
         HashMap<String,Object> result = new HashMap<>();
