@@ -23,8 +23,4 @@ public class ArticleController {
         result.put("data", articleService.findAll());
         return result;
     }
-
-    public void test(){
-
-    }
 }
