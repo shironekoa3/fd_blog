@@ -20,7 +20,6 @@ public class OptionService {
         return optionDao.findValueByOptionName(name);
     }
 
-
     public HashMap<String,Object> getWebsiteInfo() {
         HashMap<String,Object> data = new HashMap<>();
         data.put("visits", findValueByOptionName("visits"));
