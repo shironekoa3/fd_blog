@@ -17,13 +17,13 @@ public class CategoryController {
     private CategoryService categoryService;
 
 
-    @RequestMapping(value = "/getCateforyInfo", method = RequestMethod.GET)
-    public HashMap<String, Object> getCateforyInfo(){
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public HashMap<String, Object> list(){
 
         HashMap<String,Object> result = new HashMap<>();
 
         result.put("status", 200);
-        result.put("data", categoryService.getCateforyInfo());
+        result.put("data", categoryService.findAll());
 
         return result;
     }

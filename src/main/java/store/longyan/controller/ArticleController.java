@@ -16,8 +16,8 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/getArticle", method = RequestMethod.GET)
-    public HashMap<String,Object> getWebsiteInfo(){
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public HashMap<String,Object> list(){
         HashMap<String,Object> result = new HashMap<>();
         result.put("status", 200);
         result.put("data", articleService.findAll());
@@ -25,4 +25,11 @@ public class ArticleController {
     }
 
 
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public HashMap<String, Object> delete(int article_id){
+        articleService.removeById(article_id);
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("status", 200);
+        return result;
+    }
 }

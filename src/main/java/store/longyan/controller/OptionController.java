@@ -25,9 +25,4 @@ public class OptionController {
         return result;
     }
 
-    @RequestMapping(value = "/delValuceByOption", method = RequestMethod.GET)
-    public void delValuceByOption(Integer option_id){
-        optionService.delValuceByOption(option_id);
-    }
-
 }

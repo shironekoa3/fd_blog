@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import store.longyan.dao.ArticleDao;
 import store.longyan.domain.Article;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -15,6 +16,10 @@ public class ArticleService {
 
     public List<Article> findAll() {
         return articleDao.findAll();
+    }
+
+    public void removeById(int article_id){
+        articleDao.removeById(article_id);
     }
 
 }

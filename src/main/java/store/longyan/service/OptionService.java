@@ -29,8 +29,4 @@ public class OptionService {
         return data;
     }
 
-    public void delValuceByOption(Integer option_id){
-        optionDao.delValuceByOption(option_id);
-    }
-
 }
