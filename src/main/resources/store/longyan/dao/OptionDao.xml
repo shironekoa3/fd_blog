@@ -14,6 +14,10 @@
         select `nickname`,`image_url` from `user`;
     </select>
 
+    <!--通过option_id删除-->
+    <delete id="delValuceByOption" parameterType="Integer">
+        DELETE FROM `option` WHERE `option_id` = '${value}'
+    </delete>
 
 
 </mapper>

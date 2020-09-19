@@ -24,4 +24,9 @@ public class OptionController {
 
         return result;
     }
+
+    public void delValuceByOption(){
+
+    }
+
 }
