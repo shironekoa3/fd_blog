@@ -16,7 +16,7 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/getArticle", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public HashMap<String,Object> getWebsiteInfo(){
         HashMap<String,Object> result = new HashMap<>();
         result.put("status", 200);
