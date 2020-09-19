@@ -2,6 +2,7 @@ package store.longyan.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Article  implements Serializable {
     private Integer article_id;
@@ -15,6 +16,10 @@ public class Article  implements Serializable {
     private String content;
     private Integer is_top;
     private String article_image;
+
+    private Category category;
+    private List<Tag> tagList;
+
 
     public Integer getArticle_id() {
         return article_id;
@@ -104,6 +109,22 @@ public class Article  implements Serializable {
         this.article_image = article_image;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Tag> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<Tag> tagList) {
+        this.tagList = tagList;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -118,6 +139,8 @@ public class Article  implements Serializable {
                 ", content='" + content + '\'' +
                 ", is_top=" + is_top +
                 ", article_image='" + article_image + '\'' +
+                ", category=" + category +
+                ", tagList=" + tagList +
                 '}';
     }
 }
