@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.longyan.dao.CommentDao">
+    <!--查询所有-->
+    <select id="findAll" resultType="comment">
+        SELECT c.*,a.`article_title` FROM `comment` c,`article` a WHERE c.`article_id`=a.`article_id`
+    </select>
+
+    <!--删除评论-->
+    <delete id="removeById" parameterType="int">
+        delete from `comment` where `comment_id` = '${value}'
+    </delete>
+</mapper>

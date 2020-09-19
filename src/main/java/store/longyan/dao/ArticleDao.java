@@ -12,4 +12,6 @@ public interface ArticleDao {
     List<Article> findAll();
 
     void removeById(int article_id);
+
+    void saveArticle(Article article);
 }

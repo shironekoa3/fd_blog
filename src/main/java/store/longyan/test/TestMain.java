@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import store.longyan.domain.Category;
 import store.longyan.service.ArticleService;
 import store.longyan.service.CategoryService;
-import store.longyan.service.OptionService;
+import store.longyan.service.CommentService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -19,7 +19,7 @@ public class TestMain {
     private ArticleService articleService;
 
     @Autowired
-    private OptionService optionService;
+    private CommentService commentService;
 
     @Autowired
     private CategoryService categoryService;
@@ -47,4 +47,12 @@ public class TestMain {
         category.setCategory_name("音乐");
         categoryService.updateCategory(category);
     }
+
+
+    @Test
+    public void test5() {
+        System.out.println(commentService.findAll());
+    }
+
+
 }

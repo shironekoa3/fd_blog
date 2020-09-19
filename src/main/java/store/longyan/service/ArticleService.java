@@ -21,4 +21,10 @@ public class ArticleService {
         articleDao.removeById(article_id);
     }
 
+    public void saveArticle(Article article){
+        articleDao.saveArticle(article);
+
+
+
+    }
 }
