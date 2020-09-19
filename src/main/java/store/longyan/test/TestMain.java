@@ -1,15 +1,16 @@
 package store.longyan.test;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import store.longyan.domain.Category;
+import store.longyan.domain.Tag;
 import store.longyan.service.ArticleService;
 import store.longyan.service.CategoryService;
-import store.longyan.service.CommentService;
+import store.longyan.service.OptionService;
+import store.longyan.service.TagService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -19,10 +20,13 @@ public class TestMain {
     private ArticleService articleService;
 
     @Autowired
-    private CommentService commentService;
+    private OptionService optionService;
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private TagService tagService;
 
     @Test
     public void test1() {
@@ -37,7 +41,6 @@ public class TestMain {
     @Test
     public void test3() {
         categoryService.removeById(8);
-        System.out.println(categoryService.findAll());
     }
 
     @Test
@@ -48,11 +51,20 @@ public class TestMain {
         categoryService.updateCategory(category);
     }
 
-
     @Test
     public void test5() {
-        System.out.println(commentService.findAll());
-    }
+        //测试标签查询所有
+        //System.out.println(tagService.findAll());
 
+        Tag tag = new Tag();
+        tag.setTag_id(6);
+        tag.setTag_name("html");
+
+        //tagService.saveTag(tag);
+
+        //tagService.updateTag(tag);
+
+        tagService.removeById(6);
+    }
 
 }

@@ -18,17 +18,17 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public HashMap<String, Object> getWebsiteInfo() {
-        HashMap<String, Object> result = new HashMap<>();
+    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public HashMap<String,Object> list(){
+        HashMap<String,Object> result = new HashMap<>();
         result.put("status", 200);
         result.put("data", articleService.findAll());
         return result;
     }
 
 
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public HashMap<String, Object> delete(int article_id) {
+    @RequestMapping(value = "/delete", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public HashMap<String, Object> delete(int article_id){
         articleService.removeById(article_id);
         HashMap<String, Object> result = new HashMap<>();
         result.put("status", 200);

@@ -13,4 +13,6 @@ public interface TagDao {
     void saveTag(Tag tag);
 
     void updateTag(Tag tag);
+
+    void removeById(int tag_id);
 }

@@ -15,7 +15,7 @@ public class OptionController {
     @Autowired
     private OptionService optionService;
 
-    @RequestMapping(value = "/getWebsiteInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/getWebsiteInfo", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public HashMap<String,Object> getWebsiteInfo(){
 
         HashMap<String,Object> result = new HashMap<>();

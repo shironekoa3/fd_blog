@@ -3,7 +3,7 @@ package store.longyan.domain;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private Integer user_id;
+    private int user_id;
     private String username;
     private String password;
     private String nickname;
@@ -11,11 +11,11 @@ public class User implements Serializable {
     private String image_url;
     private int role;
 
-    public Integer getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 

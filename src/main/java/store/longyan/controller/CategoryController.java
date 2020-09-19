@@ -17,18 +17,18 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public HashMap<String, Object> list() {
+    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public HashMap<String,Object> list(){
 
-        HashMap<String, Object> result = new HashMap<>();
+        HashMap<String,Object> result = new HashMap<>();
         result.put("status", 200);
         result.put("data", categoryService.findAll());
 
         return result;
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public HashMap<String, Object> delete(int category_id) {
+    @RequestMapping(value = "/delete", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+    public HashMap<String, Object> delete(int category_id){
 
         categoryService.removeById(category_id);
         HashMap<String, Object> result = new HashMap<>();
