@@ -18,4 +18,9 @@
         insert into `category` (category_name) values (#{category_name});
     </insert>
 
+    <!--更新分类-->
+    <update id="updateCategory" parameterType="category">
+        update `category` set `category_name`=#{category_name} where
+        `category_id`=#{category_id}
+    </update>
 </mapper>

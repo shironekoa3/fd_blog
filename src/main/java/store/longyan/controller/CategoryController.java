@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import store.longyan.domain.Category;
 import store.longyan.service.CategoryService;
 
 import java.util.HashMap;
@@ -40,8 +41,23 @@ public class CategoryController {
 
     @RequestMapping(value = "/save",method = RequestMethod.GET)
     public HashMap<String,Object> save(String categeroy_name){
+        Category category = new Category();
+        category.setCategory_name(categeroy_name);
+        categoryService.saveCategory(category);
 
-        categoryService.saveCategory(categeroy_name);
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("status", 200);
+
+        return result;
+    }
+
+    @RequestMapping(value = "/update",method = RequestMethod.GET)
+    public HashMap<String,Object> update(int categeroy_id,
+                                         String categeroy_name){
+        Category category = new Category();
+        category.setCategory_id(categeroy_id);
+        category.setCategory_name(categeroy_name);
+        categoryService.updateCategory(category);
 
         HashMap<String,Object> result = new HashMap<>();
         result.put("status", 200);

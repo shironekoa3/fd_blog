@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import store.longyan.domain.Category;
 import store.longyan.service.ArticleService;
 import store.longyan.service.CategoryService;
 import store.longyan.service.OptionService;
@@ -34,11 +35,14 @@ public class TestMain {
 
     @Test
     public void test3() {
-        categoryService.removeById(3);
+        categoryService.removeById(8);
     }
 
     @Test
     public void test4() {
-        categoryService.saveCategory("笔记");
+        Category category = new Category();
+        category.setCategory_id(5);
+        category.setCategory_name("音乐");
+        categoryService.updateCategory(category);
     }
 }
