@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import store.longyan.dao.TagDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -15,7 +16,7 @@ public class TestMain {
     private ArticleService articleService;
 
     @Autowired
-    private OptionService optionService;
+    private CategoryService categoryService;
 
     @Test
     public void test1() {
@@ -24,7 +25,7 @@ public class TestMain {
 
     @Test
     public void test2() {
-
+        System.out.println(categoryService.findAll());
     }
 
 }
