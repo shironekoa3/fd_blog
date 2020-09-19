@@ -1,6 +1,7 @@
 package store.longyan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,7 +38,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
-    public HashMap<String, Object> save(Category category) {
+    public HashMap<String, Object> save(@RequestBody Category category) {
 
         categoryService.saveCategory(category);
 
@@ -48,7 +49,7 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
-    public HashMap<String, Object> update(Category category) {
+    public HashMap<String, Object> update(@RequestBody Category category) {
 
         categoryService.updateCategory(category);
 
