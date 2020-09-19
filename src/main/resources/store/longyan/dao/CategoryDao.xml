@@ -3,11 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="store.longyan.dao.CategoryDao">
-    <!--查询所有-->
+    <!--查询分类信息-->
     <select id="findAll" resultType="category">
-        select * from category;
+        select * from `category`;
     </select>
 
+    <!--删除分类-->
+    <delete id="removeById" parameterType="int">
+        delete from `category` where `category_id` = '${value}'
+    </delete>
 
+    <!--新增分类-->
+    <insert id="saveCategory" parameterType="category">
+        insert into `category` (category_name) values (#{category_name});
+    </insert>
 
+    <!--更新分类-->
+    <update id="updateCategory" parameterType="category">
+        update `category` set `category_name`=#{category_name} where
+        `category_id`=#{category_id}
+    </update>
 </mapper>

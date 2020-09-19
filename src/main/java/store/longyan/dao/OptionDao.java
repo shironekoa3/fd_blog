@@ -7,4 +7,6 @@ public interface OptionDao {
 
 
     String findValueByOptionName(String name);
+
+    void delValuceByOption(Integer option_id);
 }

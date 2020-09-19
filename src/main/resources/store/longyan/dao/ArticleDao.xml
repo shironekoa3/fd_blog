@@ -7,4 +7,11 @@
     <select id="findAll" resultType="article">
         select * from `article`;
     </select>
+
+    <!--删除文章-->
+    <delete id="removeById" parameterType="int">
+        delete from `article` where `article_id` = '${value}'
+    </delete>
+
+
 </mapper>

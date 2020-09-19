@@ -10,4 +10,7 @@ public interface TagDao {
 
     List<Tag> findAll();
 
+    void saveTag(Tag tag);
+
+    void updateTag(Tag tag);
 }
