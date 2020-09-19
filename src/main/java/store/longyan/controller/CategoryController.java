@@ -17,9 +17,9 @@ public class CategoryController {
     private CategoryService categoryService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public HashMap<String,Object> list(){
+    public HashMap<String, Object> list() {
 
-        HashMap<String,Object> result = new HashMap<>();
+        HashMap<String, Object> result = new HashMap<>();
         result.put("status", 200);
         result.put("data", categoryService.findAll());
 
@@ -27,36 +27,32 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public HashMap<String, Object> delete(int category_id){
+    public HashMap<String, Object> delete(int category_id) {
 
         categoryService.removeById(category_id);
-        HashMap<String,Object> result = new HashMap<>();
+        HashMap<String, Object> result = new HashMap<>();
         result.put("status", 200);
 
         return result;
     }
 
-    @RequestMapping(value = "/save",method = RequestMethod.GET)
-    public HashMap<String,Object> save(String categeroy_name){
-        Category category = new Category();
-        category.setCategory_name(categeroy_name);
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    public HashMap<String, Object> save(Category category) {
+
         categoryService.saveCategory(category);
 
-        HashMap<String,Object> result = new HashMap<>();
+        HashMap<String, Object> result = new HashMap<>();
         result.put("status", 200);
 
         return result;
     }
 
-    @RequestMapping(value = "/update",method = RequestMethod.GET)
-    public HashMap<String,Object> update(int categeroy_id,
-                                         String categeroy_name){
-        Category category = new Category();
-        category.setCategory_id(categeroy_id);
-        category.setCategory_name(categeroy_name);
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+    public HashMap<String, Object> update(Category category) {
+
         categoryService.updateCategory(category);
 
-        HashMap<String,Object> result = new HashMap<>();
+        HashMap<String, Object> result = new HashMap<>();
         result.put("status", 200);
 
         return result;
