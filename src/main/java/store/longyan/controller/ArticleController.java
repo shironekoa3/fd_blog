@@ -16,7 +16,7 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public HashMap<String,Object> list(){
         HashMap<String,Object> result = new HashMap<>();
         result.put("status", 200);
@@ -25,7 +25,7 @@ public class ArticleController {
     }
 
 
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     public HashMap<String, Object> delete(int article_id){
         articleService.removeById(article_id);
         HashMap<String,Object> result = new HashMap<>();

@@ -4,23 +4,23 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Article  implements Serializable {
-    private Integer article_id;
+    private int article_id;
     private String article_title;
     private Date article_date;
-    private Integer click_count;
-    private Integer like_count;
-    private Integer comment_count;
-    private Integer comment_status;
-    private Integer category_id;
+    private int click_count;
+    private int like_count;
+    private int comment_count;
+    private int comment_status;
+    private int category_id;
     private String content;
-    private Integer is_top;
+    private int is_top;
     private String article_image;
 
-    public Integer getArticle_id() {
+    public int getArticle_id() {
         return article_id;
     }
 
-    public void setArticle_id(Integer article_id) {
+    public void setArticle_id(int article_id) {
         this.article_id = article_id;
     }
 
@@ -40,43 +40,43 @@ public class Article  implements Serializable {
         this.article_date = article_date;
     }
 
-    public Integer getClick_count() {
+    public int getClick_count() {
         return click_count;
     }
 
-    public void setClick_count(Integer click_count) {
+    public void setClick_count(int click_count) {
         this.click_count = click_count;
     }
 
-    public Integer getLike_count() {
+    public int getLike_count() {
         return like_count;
     }
 
-    public void setLike_count(Integer like_count) {
+    public void setLike_count(int like_count) {
         this.like_count = like_count;
     }
 
-    public Integer getComment_count() {
+    public int getComment_count() {
         return comment_count;
     }
 
-    public void setComment_count(Integer comment_count) {
+    public void setComment_count(int comment_count) {
         this.comment_count = comment_count;
     }
 
-    public Integer getComment_status() {
+    public int getComment_status() {
         return comment_status;
     }
 
-    public void setComment_status(Integer comment_status) {
+    public void setComment_status(int comment_status) {
         this.comment_status = comment_status;
     }
 
-    public Integer getCategory_id() {
+    public int getCategory_id() {
         return category_id;
     }
 
-    public void setCategory_id(Integer category_id) {
+    public void setCategory_id(int category_id) {
         this.category_id = category_id;
     }
 
@@ -88,11 +88,11 @@ public class Article  implements Serializable {
         this.content = content;
     }
 
-    public Integer getIs_top() {
+    public int getIs_top() {
         return is_top;
     }
 
-    public void setIs_top(Integer is_top) {
+    public void setIs_top(int is_top) {
         this.is_top = is_top;
     }
 
