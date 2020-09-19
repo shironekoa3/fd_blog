@@ -1,4 +1,4 @@
-package store.longyan.service;
+package store.longyan.test;
 
 
 import org.junit.Test;
@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import store.longyan.domain.Category;
+import store.longyan.service.ArticleService;
+import store.longyan.service.CategoryService;
+import store.longyan.service.OptionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
