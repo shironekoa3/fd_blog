@@ -37,4 +37,15 @@ public class CategoryController {
 
         return result;
     }
+
+    @RequestMapping(value = "/save",method = RequestMethod.GET)
+    public HashMap<String,Object> save(String categeroy_name){
+
+        categoryService.saveCategory(categeroy_name);
+
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("status", 200);
+
+        return result;
+    }
 }

@@ -13,5 +13,9 @@
         delete from `category` where `category_id` = '${value}'
     </delete>
 
+    <!--新增分类-->
+    <insert id="saveCategory" parameterType="category">
+        insert into `category` (category_name) values (#{category_name});
+    </insert>
 
 </mapper>

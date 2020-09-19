@@ -21,4 +21,10 @@ public class CategoryService {
         categoryDao.removeById(category_id);
     }
 
+    public void saveCategory(String category_name){
+        Category category = new Category();
+        category.setCategory_name(category_name);
+        categoryDao.saveCategory(category);
+    }
+
 }
