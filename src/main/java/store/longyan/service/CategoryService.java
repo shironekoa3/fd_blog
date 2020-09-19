@@ -17,4 +17,8 @@ public class CategoryService {
         return categoryDao.findAll();
     }
 
+    public void removeById(int category_id){
+        categoryDao.removeById(category_id);
+    }
+
 }

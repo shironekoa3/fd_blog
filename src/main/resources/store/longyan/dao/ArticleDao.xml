@@ -10,7 +10,7 @@
 
     <!--删除文章-->
     <delete id="removeById" parameterType="int">
-        DELETE FROM `article` WHERE `article_id` = '${value}'
+        delete from `article` where `article_id` = '${value}'
     </delete>
 
 

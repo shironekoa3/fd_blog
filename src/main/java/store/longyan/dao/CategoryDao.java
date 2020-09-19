@@ -10,4 +10,6 @@ import java.util.List;
 public interface CategoryDao {
 
     List<Category> findAll();
+
+    void removeById(int category_id);
 }

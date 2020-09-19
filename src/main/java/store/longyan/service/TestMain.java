@@ -17,6 +17,9 @@ public class TestMain {
     @Autowired
     private OptionService optionService;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @Test
     public void test1() {
         System.out.println(articleService.findAll());
@@ -25,6 +28,11 @@ public class TestMain {
     @Test
     public void test2() {
         articleService.removeById(3);
+    }
+
+    @Test
+    public void test3() {
+        categoryService.removeById(3);
     }
 
 }

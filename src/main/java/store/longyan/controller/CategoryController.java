@@ -27,4 +27,14 @@ public class CategoryController {
 
         return result;
     }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public HashMap<String, Object> delete(int category_id){
+
+        categoryService.removeById(category_id);
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("status", 200);
+
+        return result;
+    }
 }
