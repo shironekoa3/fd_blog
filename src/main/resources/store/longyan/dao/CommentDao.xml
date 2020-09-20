@@ -10,6 +10,6 @@
 
     <!--删除评论-->
     <delete id="removeById" parameterType="int">
-        delete from `comment` where `comment_id` = '${value}'
+        delete from `comment` where `comment_id` = #{value}
     </delete>
 </mapper>

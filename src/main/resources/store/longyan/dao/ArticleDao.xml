@@ -8,24 +8,24 @@
     <resultMap id="articleMap" type="article">
         <!-- 手动指定字段与实体属性的映射关系 -->
         <!-- column: 数据库字段名     property: 实体类属性名 -->
-        <id column="article_id" property="article_id" />
-        <result column="article_title" property="article_title" />
-        <result column="article_date" property="article_date" />
-        <result column="click_count" property="click_count" />
-        <result column="comment_count" property="comment_count" />
-        <result column="comment_status" property="comment_status" />
-        <result column="category_id" property="category_id" />
-        <result column="content" property="content" />
-        <result column="is_top" property="is_top" />
-        <result column="article_image" property="article_image" />
-        <result column="is_top" property="is_top" />
+        <id column="article_id" property="article_id"/>
+        <result column="article_title" property="article_title"/>
+        <result column="article_date" property="article_date"/>
+        <result column="click_count" property="click_count"/>
+        <result column="comment_count" property="comment_count"/>
+        <result column="comment_status" property="comment_status"/>
+        <result column="category_id" property="category_id"/>
+        <result column="content" property="content"/>
+        <result column="is_top" property="is_top"/>
+        <result column="article_image" property="article_image"/>
+        <result column="is_top" property="is_top"/>
         <association property="category" javaType="category">
-            <id column="category_id" property="category_id" />
-            <result column="category_name" property="category_name" />
+            <id column="category_id" property="category_id"/>
+            <result column="category_name" property="category_name"/>
         </association>
         <collection property="tagList" ofType="tag">
-            <id column="tag_id" property="tag_id" />
-            <result column="tag_name" property="tag_name" />
+            <id column="tag_id" property="tag_id"/>
+            <result column="tag_name" property="tag_name"/>
         </collection>
     </resultMap>
 
@@ -43,28 +43,68 @@
         WHERE
         a.`category_id`=c.`category_id`
         AND
+        tm.`article_id`=a.`article_id`
+        AND
         tm.`tag_id`=t.`tag_id`
     </select>
 
+    <select id="findByArticleId" resultMap="articleMap" parameterType="int">
+        SELECT
+        a.*,
+        c.category_name,
+        t.*
+        FROM
+        `article` a,
+        `category` c,
+        `tagmeta` tm,
+        `tag` t
+        WHERE
+        a.`category_id`=c.`category_id`
+        AND
+        tm.`article_id`=a.`article_id`
+        AND
+        tm.`tag_id`=t.`tag_id`
+        AND
+        a.`article_id`=#{value}
+    </select>
+
+
     <!--删除文章-->
     <delete id="removeById" parameterType="int">
-        delete from `article` where `article_id` = '${value}'
+        delete from `article` where `article_id` = #{value}
     </delete>
 
     <!-- 添加文章 -->
     <insert id="saveArticle" parameterType="article">
+        <selectKey keyProperty="article_id" order="AFTER" resultType="int">
+            select LAST_INSERT_ID()
+        </selectKey>
         INSERT INTO `article` VALUES(
         NULL,
-        ${article_title},
-        ${article_date},
+        #{article_title},
+        #{article_date},
         0,
         0,
         0,
-        ${comment_status},
-        ${category_id}),
-        ${content},
-        ${is_top},
-        ${article_image})
+        #{comment_status},
+        #{category_id},
+        #{content},
+        #{is_top},
+        #{article_image})
     </insert>
+
+    <!-- 更新文章 -->
+    <update id="updateArticle" parameterType="article">
+        UPDATE `article` SET
+        `article_title` = #{article_title},
+        `article_date` = #{article_date},
+        `comment_status` = #{comment_status},
+        `category_id` = #{category_id},
+        `content` = #{content},
+        `is_top` = #{is_top},
+        `article_image` = #{article_image}
+        WHERE
+        `article_id` = #{article_id}
+    </update>
 
 </mapper>

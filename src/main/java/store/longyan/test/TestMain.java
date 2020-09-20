@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import store.longyan.domain.Article;
 import store.longyan.domain.Category;
 import store.longyan.domain.Tag;
 import store.longyan.service.ArticleService;
@@ -30,7 +31,9 @@ public class TestMain {
 
     @Test
     public void test1() {
-        System.out.println(articleService.findAll());
+        Article byArticleId = articleService.findByArticleId(2);
+
+        System.out.println(byArticleId);
     }
 
     @Test

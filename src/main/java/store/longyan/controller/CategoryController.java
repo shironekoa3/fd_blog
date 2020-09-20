@@ -51,7 +51,6 @@ public class CategoryController {
     @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     public HashMap<String, Object> update(@RequestBody Category category) {
 
-
         categoryService.updateCategory(category);
 
         HashMap<String, Object> result = new HashMap<>();

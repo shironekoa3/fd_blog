@@ -10,11 +10,14 @@
 
     <!--删除分类-->
     <delete id="removeById" parameterType="int">
-        delete from `category` where `category_id` = '${value}'
+        delete from `category` where `category_id` = #{value}
     </delete>
 
     <!--新增分类-->
     <insert id="saveCategory" parameterType="category">
+        <selectKey  keyProperty="category_id" order="AFTER" resultType="int">
+            select LAST_INSERT_ID()
+        </selectKey>
         insert into `category` (category_name) values (#{category_name});
     </insert>
 

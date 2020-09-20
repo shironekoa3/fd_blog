@@ -21,8 +21,8 @@ public class CategoryService {
         categoryDao.removeById(category_id);
     }
 
-    public void saveCategory(Category category){
-        categoryDao.saveCategory(category);
+    public int saveCategory(Category category){
+        return categoryDao.saveCategory(category);
     }
 
     public void updateCategory(Category category){

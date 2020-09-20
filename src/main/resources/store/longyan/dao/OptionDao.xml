@@ -7,7 +7,7 @@
     <!--通过名称查询-->
     <select id="findValueByOptionName" parameterType="String"
             resultType="String">
-        select option_value from `option` where option_name='${value}';
+        select option_value from `option` where option_name=#{value};
     </select>
 
 

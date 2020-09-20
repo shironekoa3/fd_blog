@@ -8,19 +8,19 @@
         select * from `tag`;
     </select>
 
-    <!--新增分类-->
     <insert id="saveTag" parameterType="tag">
+        <selectKey  keyProperty="tag_id" order="AFTER" resultType="int">
+            select LAST_INSERT_ID()
+        </selectKey>
         insert into `tag` (tag_name) values (#{tag_name});
     </insert>
 
-    <!--更新分类-->
     <update id="updateTag" parameterType="tag">
         update `tag` set `tag_name`=#{tag_name} where
         `tag_id`=#{tag_id}
     </update>
 
-    <!--删除分类-->
     <delete id="removeById" parameterType="int">
-        delete from `tag` where `tag_id` = '${value}'
+        delete from `tag` where `tag_id` = #{value}
     </delete>
 </mapper>

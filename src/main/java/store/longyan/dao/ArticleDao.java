@@ -11,7 +11,11 @@ public interface ArticleDao {
 
     List<Article> findAll();
 
+    Article findByArticleId(int article_id);
+
     void removeById(int article_id);
 
-    void saveArticle(Article article);
+    int saveArticle(Article article);
+
+    int updateArticle(Article article);
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="store.longyan.dao.TagmetaDao">
+    <!--查询所有-->
+    <select id="findAll" resultType="tagmeta">
+        select * from `tagmeta`;
+    </select>
+
+    <!-- 保存多个 Tagmeta -->
+    <insert id="saveTagmetaList" parameterType="list">
+        INSERT INTO `tagmeta` VALUES
+        <foreach collection="list" item="item" separator=",">
+            (NULL, #{item.article_id}, #{item.tag_id})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByArticleId" parameterType="int">
+        DELETE FROM `tagmeta` WHERE `article_id`=#{value}
+    </delete>
+
+</mapper>

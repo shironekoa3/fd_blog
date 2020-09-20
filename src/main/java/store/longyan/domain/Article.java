@@ -2,6 +2,7 @@ package store.longyan.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Article  implements Serializable {
     private int article_id;
@@ -10,21 +11,21 @@ public class Article  implements Serializable {
     private int click_count;
     private int like_count;
     private int comment_count;
-    private int comment_status;
+    private boolean comment_status;
     private int category_id;
     private String content;
-    private int is_top;
+    private boolean is_top;
     private String article_image;
 
     private Category category;
     private List<Tag> tagList;
 
 
-    public Integer getArticle_id() {
+    public int getArticle_id() {
         return article_id;
     }
 
-    public void setArticle_id(Integer article_id) {
+    public void setArticle_id(int article_id) {
         this.article_id = article_id;
     }
 
@@ -68,11 +69,11 @@ public class Article  implements Serializable {
         this.comment_count = comment_count;
     }
 
-    public int getComment_status() {
+    public boolean isComment_status() {
         return comment_status;
     }
 
-    public void setComment_status(int comment_status) {
+    public void setComment_status(boolean comment_status) {
         this.comment_status = comment_status;
     }
 
@@ -92,11 +93,11 @@ public class Article  implements Serializable {
         this.content = content;
     }
 
-    public int getIs_top() {
+    public boolean isIs_top() {
         return is_top;
     }
 
-    public void setIs_top(int is_top) {
+    public void setIs_top(boolean is_top) {
         this.is_top = is_top;
     }
 

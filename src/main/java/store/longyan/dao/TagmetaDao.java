@@ -2,17 +2,16 @@ package store.longyan.dao;
 
 import org.springframework.stereotype.Repository;
 import store.longyan.domain.Tag;
+import store.longyan.domain.Tagmeta;
 
 import java.util.List;
 
 @Repository
-public interface TagDao {
+public interface TagmetaDao {
 
     List<Tag> findAll();
 
-    int saveTag(Tag tag);
+    int saveTagmetaList(List<Tagmeta> tagmetaList);
 
-    void updateTag(Tag tag);
-
-    void removeById(int tag_id);
+    int deleteByArticleId(int article_id);
 }
